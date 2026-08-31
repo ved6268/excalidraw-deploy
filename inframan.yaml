@@ -1,0 +1,22 @@
+version: v1
+application: excalidraw
+namespace: excalidraw
+services:
+  web:
+    type: web
+    path: ""
+    port: 80
+    domain: ved.inframan.cloud
+    scaling:
+      type: concurrency
+      min_replicas: 1
+      max_replicas: 2
+      target: 100
+    resources:
+      cpu_request: "100m"
+      memory_request: "256Mi"
+      cpu_limit: "500m"
+      memory_limit: "512Mi"
+    build:
+      method: docker
+      dockerfile: ./Dockerfile
